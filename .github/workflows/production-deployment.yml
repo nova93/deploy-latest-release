@@ -21,7 +21,7 @@ jobs:
         run: |
           TAG=$(gh release list --repo ${{ github.repository }} --json tagName,isLatest -q 'map(select(.isLatest == true)).[0].tagName')
           echo "tag=$TAG"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
   check:
     name: Check if the tag is right
     runs-on: 'ubuntu-latest'
