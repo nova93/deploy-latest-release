@@ -15,7 +15,7 @@ jobs:
       tag: $
     steps:
       - name: Find latest release
-      - run: |
+        run: |
           gh release list \
           --repo dueltech/advocate-portal \
           --json tagName,isLatest -q \
