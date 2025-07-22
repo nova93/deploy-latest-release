@@ -19,7 +19,6 @@ jobs:
       - name: Find latest release
         run: |
           gh release list \
-          --repo dueltech/advocate-portal \
           --json tagName,isLatest -q \
           'map(select(.isLatest == true)).[0].tagName' \
           >> "$GITHUB_OUTPUT"
