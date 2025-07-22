@@ -12,7 +12,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     environment: 'Production'
     outputs:
-      tag: ${{ steps.tag.output.tag }}
+      tag: ${{ steps.tag.outputs.tag }}
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
