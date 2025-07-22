@@ -1,10 +1,6 @@
 name: Production deployment
 
-on:
-  release: # https://docs.github.com/en/webhooks/webhook-events-and-payloads?actionType=unpublished#release
-    types:
-      - unpublished # A release or pre-release was unpublished.
-      - released # A release was published, or a pre-release was changed to a release.
+on: release
 
 jobs:
   version:
