@@ -29,7 +29,6 @@ jobs:
     runs-on: 'ubuntu-latest'
     environment: 'Production'
     needs: version
-    env:
     steps:
       - name: Print tag
         run: echo "${{ needs.version.outputs.tag}}"
