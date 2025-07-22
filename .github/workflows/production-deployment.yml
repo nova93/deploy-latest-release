@@ -12,17 +12,18 @@ jobs:
     runs-on: 'ubuntu-latest'
     environment: 'Production'
     outputs:
-      tag: $
+      tag: ${{ steps.tag.output.tag }}
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Find latest release
+        id: tag
         run: |
-          gh release list \
+          TAG=$(gh release list \
             --repo ${{ github.repository }} \
             --json tagName,isLatest -q \
-            'map(select(.isLatest == true)).[0].tagName' \
-            >> "$GITHUB_OUTPUT"
+            'map(select(.isLatest == true)).[0].tagName') \
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
   check:
     name: Check if the tag is right
     runs-on: 'ubuntu-latest'
