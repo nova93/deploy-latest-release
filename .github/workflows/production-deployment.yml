@@ -19,6 +19,7 @@ jobs:
       - name: Find latest release
         run: |
           gh release list \
+          --repo {{ github.repository }} \
           --json tagName,isLatest -q \
           'map(select(.isLatest == true)).[0].tagName' \
           >> "$GITHUB_OUTPUT"
