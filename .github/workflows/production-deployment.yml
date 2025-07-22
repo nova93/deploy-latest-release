@@ -29,6 +29,7 @@ jobs:
     needs: version
     steps:
       - uses: actions/checkout@v4
-        ref: ${{ needs.version.outputs.tag}}
+        with:
+          ref: ${{ needs.version.outputs.tag}}
       - name: Print tag
         run: echo "${{ needs.version.outputs.tag}}"
